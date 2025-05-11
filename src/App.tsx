@@ -1,11 +1,7 @@
-import List from "./pages/List/List";
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
 function App() {
-  return (
-    <div className="App">
-      <h1>问卷 FE</h1>
-      <List />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
