@@ -1,7 +1,11 @@
 import { FC, useState } from "react";
 import styles from "./List.module.scss";
+import { useSearchParams } from "react-router-dom";
 import QuestionCard from "@/components/QuestionCard.tsx";
 const List: FC = () => {
+  const [searchParams] = useSearchParams();
+  const search = searchParams.get("keyword");
+  console.log(search);
   const [questions, setQuestions] = useState([
     {
       id: "q1",

@@ -1,6 +1,8 @@
 import { FC } from "react";
+import { useParams } from "react-router-dom";
 
 const Edit: FC = () => {
-  return <div>编辑</div>;
+  const { id } = useParams();
+  return <div>编辑 {id}</div>;
 };
 export default Edit;
