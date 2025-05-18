@@ -1,7 +1,11 @@
 import { FC, useState } from "react";
+import  { Typography } from "antd";
 import styles from "./List.module.scss";
 import { useSearchParams } from "react-router-dom";
 import QuestionCard from "@/components/QuestionCard.tsx";
+
+const { Title } = Typography;
+
 const List: FC = () => {
   const [searchParams] = useSearchParams();
   const search = searchParams.get("keyword");
@@ -37,18 +41,20 @@ const List: FC = () => {
     <>
       <div className={styles.header}>
         <div className={styles.left}>
-          <h3>我的问卷</h3>
+          <Title level={3}>我的问卷</Title>
         </div>
         <div className={styles.right}>(搜索)</div>
       </div>
       <div className={styles.content}>
-        {questions.map((question) => {
+        {questions.length> 0 && questions.map((question) => {
           const { id } = question;
           return <QuestionCard key={id} {...question} />;
         })}
       </div>
 
-      <div className={styles.footer}>footer</div>
+      <div className={styles.footer}>
+        loadmore 上划加载更多...
+      </div>
     </>
   );
 };
